@@ -3,23 +3,43 @@ package br.com.qualiti.servicos;
 import static br.com.qualiti.utils.DataUtils.adicionarDias;
 
 import java.util.Date;
+import java.util.List;
 
 import br.com.qualiti.entidades.Filme;
 import br.com.qualiti.entidades.Locacao;
 import br.com.qualiti.entidades.Usuario;
+import br.com.qualiti.exceptions.LocadoraException;
 
 public class LocacaoService {
 	
-	public Locacao alugarFilme(Usuario usuario, Filme filme) throws Exception {
+	public Locacao alugarFilme(Usuario usuario, List<Filme> filmes) throws Exception {
 		
-		if(filme.getEstoque()==0) {
-			throw new Exception("Filme sem estoque!");
+		if(usuario == null) {
+			throw new LocadoraException("Usuário Nulo");
 		}
+		
+		if(filmes == null || filmes.isEmpty()) {
+			throw new LocadoraException("Filme nulo");
+		}
+		for (Filme filme : filmes) {
+			if(filme == null) {
+				throw new LocadoraException("Filme nulo");
+			} else if(filme.getEstoque()==0) {
+				throw new LocadoraException("Filme sem estoque!");
+			}
+		}
+		
 		Locacao locacao = new Locacao();
-		locacao.setFilme(filme);
+		locacao.setFilmes(filmes);
 		locacao.setUsuario(usuario);
 		locacao.setDataLocacao(new Date());
-		locacao.setValor(filme.getPrecoLocacao());
+		Double valorTotal = 0.0;
+		
+		for (Filme filme : filmes) {
+			valorTotal = valorTotal + filme.getPrecoLocacao();
+			
+		}
+		locacao.setValor(valorTotal);
 
 		//Entrega no dia seguinte
 		Date dataEntrega = new Date();
