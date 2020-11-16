@@ -34,13 +34,46 @@ public class LocacaoService {
 		locacao.setUsuario(usuario);
 		locacao.setDataLocacao(new Date());
 		Double valorTotal = 0.0;
+		Double valorUnidade = 0.0;
+		Double desconto = 0.0;
 		
 		for (Filme filme : filmes) {
+			valorUnidade = filme.getPrecoLocacao();
 			valorTotal = valorTotal + filme.getPrecoLocacao();
 			
 		}
 		locacao.setValor(valorTotal);
+		
+		switch (filmes.size()) {
+		case 1:
+			break;
+		case 2:
+			break;
+		case 3:
+			desconto = valorUnidade * 25/100;
+			valorTotal = locacao.getValor() - desconto;
+			break;
+		case 4:
+			desconto = valorUnidade * 50/100;
+			valorTotal = locacao.getValor() - desconto;
+			break;
+		case 5:
+			desconto = valorUnidade * 75/100;
+			valorTotal = locacao.getValor() - desconto;
+			break;
+		case 6:
+			desconto = valorUnidade * 100/100;
+			valorTotal = locacao.getValor() - desconto;
+			break;
 
+		default:
+			desconto = valorUnidade * 100/100;
+			valorTotal = locacao.getValor() - desconto;
+			break;
+		}
+
+		locacao.setValor(valorTotal);
+		
 		//Entrega no dia seguinte
 		Date dataEntrega = new Date();
 		dataEntrega = adicionarDias(dataEntrega, 1);

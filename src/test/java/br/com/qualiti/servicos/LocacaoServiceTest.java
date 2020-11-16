@@ -119,5 +119,237 @@ public class LocacaoServiceTest {
 		// - 75% no 5º filme
 		// - 100% no 6º filme
 		// - não tem desconto no 7º filme em diante
+	
+	
+	@Test
+	@DisplayName("Teste com 2 filmes")
+	public void testeComDoisFilmes() throws Exception {
+		
+		// CENARIOS: Montagem de ambiente
+		
+		Usuario usuario1 = new Usuario("Joyce");
+		List<Filme> filmes = new ArrayList<>();
+		Filme filme1 = new Filme("Filme1", 3, 5.0);
+		Filme filme2 = new Filme("Filme2", 4, 5.0);
+				
+		filmes.add(filme1);
+		filmes.add(filme2);
+			
+		LocacaoService service = new LocacaoService();
+		
+		// ACAO : O teste
+				
+		Locacao locacao = service.alugarFilme(usuario1, filmes);
+				
+		
+		// VERIFICACAO : Checar resultado do teste
+		
+		assertEquals(locacao.getValor(), 10.00);				
+		
+	}
+	
+	@Test
+	@DisplayName("Teste com 3 filmes")
+	public void testeComTresFilmes() throws Exception {
+		
+		// CENARIOS: Montagem de ambiente
+		
+		Usuario usuario1 = new Usuario("Joyce");
+		List<Filme> filmes = new ArrayList<>();
+		Filme filme1 = new Filme("Filme1", 3, 5.0);
+		Filme filme2 = new Filme("Filme2", 4, 5.0);
+		Filme filme3 = new Filme("Filme3", 4, 5.0);
+		
+		filmes.add(filme1);
+		filmes.add(filme2);
+		filmes.add(filme3);
+		
+		LocacaoService service = new LocacaoService();
+		
+		// ACAO : O teste
+				
+		Locacao locacao = service.alugarFilme(usuario1, filmes);
+				
+		
+		// VERIFICACAO : Checar resultado do teste
+		
+		assertEquals(locacao.getValor(), 13.75);				
+		
+	}
+	
+	@Test
+	@DisplayName("Teste com 4 filmes")
+	public void testeComQuatroFilmes() throws Exception {
+		
+		// CENARIOS: Montagem de ambiente
+		
+		Usuario usuario1 = new Usuario("Joyce");
+		List<Filme> filmes = new ArrayList<>();
+		Filme filme1 = new Filme("Filme1", 3, 5.0);
+		Filme filme2 = new Filme("Filme2", 4, 5.0);
+		Filme filme3 = new Filme("Filme3", 4, 5.0);
+		Filme filme4 = new Filme("Filme4", 4, 5.0);
+		
+		filmes.add(filme1);
+		filmes.add(filme2);
+		filmes.add(filme3);
+		filmes.add(filme4);
+		
+		LocacaoService service = new LocacaoService();
+		
+		// ACAO : O teste
+				
+		Locacao locacao = service.alugarFilme(usuario1, filmes);
+				
+		
+		// VERIFICACAO : Checar resultado do teste
+		
+		assertEquals(locacao.getValor(), 17.50);				
+		
+	}
+	
+	@Test
+	@DisplayName("Teste com 5 filmes")
+	public void testeComCincoFilmes() throws Exception {
+		
+		// CENARIOS: Montagem de ambiente
+		
+		Usuario usuario1 = new Usuario("Joyce");
+		List<Filme> filmes = new ArrayList<>();
+		Filme filme1 = new Filme("Filme1", 3, 5.0);
+		Filme filme2 = new Filme("Filme2", 4, 5.0);
+		Filme filme3 = new Filme("Filme3", 4, 5.0);
+		Filme filme4 = new Filme("Filme4", 4, 5.0);
+		Filme filme5 = new Filme("Filme5", 4, 5.0);
+		
+		filmes.add(filme1);
+		filmes.add(filme2);
+		filmes.add(filme3);
+		filmes.add(filme4);
+		filmes.add(filme5);
+		
+		LocacaoService service = new LocacaoService();
+		
+		// ACAO : O teste
+				
+		Locacao locacao = service.alugarFilme(usuario1, filmes);
+				
+		
+		// VERIFICACAO : Checar resultado do teste
+		
+		assertEquals(locacao.getValor(), 21.25);				
+		
+	}
+	
+	@Test
+	@DisplayName("Teste com 6 filmes")
+	public void testeComSeisFilmes() throws Exception {
+		
+		// CENARIOS: Montagem de ambiente
+		
+		Usuario usuario1 = new Usuario("Joyce");
+		List<Filme> filmes = new ArrayList<>();
+		Filme filme1 = new Filme("Filme1", 3, 5.0);
+		Filme filme2 = new Filme("Filme2", 4, 5.0);
+		Filme filme3 = new Filme("Filme3", 4, 5.0);
+		Filme filme4 = new Filme("Filme4", 4, 5.0);
+		Filme filme5 = new Filme("Filme5", 4, 5.0);
+		Filme filme6 = new Filme("Filme6", 4, 5.0);
+		
+		filmes.add(filme1);
+		filmes.add(filme2);
+		filmes.add(filme3);
+		filmes.add(filme4);
+		filmes.add(filme5);
+		filmes.add(filme6);
+		
+		LocacaoService service = new LocacaoService();
+		
+		// ACAO : O teste
+				
+		Locacao locacao = service.alugarFilme(usuario1, filmes);
+				
+		
+		// VERIFICACAO : Checar resultado do teste
+		
+		assertEquals(locacao.getValor(), 25.00);				
+		
+	}
+	
+	@Test
+	@DisplayName("Teste com 7 filmes")
+	public void testeComSeteFilmes() throws Exception {
+		
+		// CENARIOS: Montagem de ambiente
+		
+		Usuario usuario1 = new Usuario("Joyce");
+		List<Filme> filmes = new ArrayList<>();
+		Filme filme1 = new Filme("Filme1", 3, 5.0);
+		Filme filme2 = new Filme("Filme2", 4, 5.0);
+		Filme filme3 = new Filme("Filme3", 4, 5.0);
+		Filme filme4 = new Filme("Filme4", 4, 5.0);
+		Filme filme5 = new Filme("Filme5", 4, 5.0);
+		Filme filme6 = new Filme("Filme6", 4, 5.0);
+		Filme filme7 = new Filme("Filme7", 4, 5.0);
+		
+		filmes.add(filme1);
+		filmes.add(filme2);
+		filmes.add(filme3);
+		filmes.add(filme4);
+		filmes.add(filme5);
+		filmes.add(filme6);
+		filmes.add(filme7);
+		
+		LocacaoService service = new LocacaoService();
+		
+		// ACAO : O teste
+				
+		Locacao locacao = service.alugarFilme(usuario1, filmes);
+				
+		
+		// VERIFICACAO : Checar resultado do teste
+		
+		assertEquals(locacao.getValor(), 30.00);				
+		
+	}
+	
+	@Test
+	@DisplayName("Teste com 8 filmes")
+	public void testeComOitoFilmes() throws Exception {
+		
+		// CENARIOS: Montagem de ambiente
+		
+		Usuario usuario1 = new Usuario("Joyce");
+		List<Filme> filmes = new ArrayList<>();
+		Filme filme1 = new Filme("Filme1", 3, 5.0);
+		Filme filme2 = new Filme("Filme2", 4, 5.0);
+		Filme filme3 = new Filme("Filme3", 4, 5.0);
+		Filme filme4 = new Filme("Filme4", 4, 5.0);
+		Filme filme5 = new Filme("Filme5", 4, 5.0);
+		Filme filme6 = new Filme("Filme6", 4, 5.0);
+		Filme filme7 = new Filme("Filme7", 4, 5.0);
+		Filme filme8 = new Filme("Filme8", 4, 5.0);
+		
+		filmes.add(filme1);
+		filmes.add(filme2);
+		filmes.add(filme3);
+		filmes.add(filme4);
+		filmes.add(filme5);
+		filmes.add(filme6);
+		filmes.add(filme7);
+		filmes.add(filme8);
+		
+		LocacaoService service = new LocacaoService();
+		
+		// ACAO : O teste
+				
+		Locacao locacao = service.alugarFilme(usuario1, filmes);
+				
+		
+		// VERIFICACAO : Checar resultado do teste
+		
+		assertEquals(locacao.getValor(), 35.00);				
+		
+	}
 
 }
